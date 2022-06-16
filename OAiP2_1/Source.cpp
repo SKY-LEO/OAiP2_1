@@ -3,16 +3,16 @@
 
 #define PRECISION 0.00001
 
+using namespace std;
+
 int checkInputNumberInt();
 double checkInputNumberDouble();
 double simple(double a);
 double magicRecursion(double& a, double& x);
-using namespace std;
 
 int main()
 {
 	char code;
-	int variant;
 	double a;
 	double result = 0;
 	do
@@ -21,22 +21,9 @@ int main()
 		{
 			cout << "Enter the number:" << endl;
 			a = checkInputNumberDouble();
-		} while (a < 1);
-		do
-		{
-			cout << "Choose variant of calculation: \n1.Simple \n2.Recursion" << endl;
-			variant = checkInputNumberInt();
-		} while (variant > 2 || variant < 1);
-		switch (variant)
-		{
-		case 1: result = simple(a);
-			break;
-		case 2:
-			double variable = 0.5 * (1 + a);
-			result = magicRecursion(a, variable);
-			break;
-		}
-		cout << "Result: " << result << endl;
+		} while (a < 0 || a == 0);
+		double variable = 0.5 * (1 + a);
+		cout << "Result: \nSimple: " << simple(a) << "\nRecursion: " << magicRecursion(a, variable) << endl;
 		cout << "Do you want to continue? Y/N" << endl;
 		code = _getch();
 	} while (code == 'y' || code == 'Y');
@@ -70,7 +57,7 @@ double checkInputNumberDouble()
 		else
 		{
 			cin.clear();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cin.ignore(256, '\n');
 			cout << "Error, please write int number!\n" << "Try again!" << endl;
 		}
 	}
@@ -89,7 +76,7 @@ int checkInputNumberInt()
 		else
 		{
 			cin.clear();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cin.ignore(256, '\n');
 			cout << "Error, please write int number!\n" << "Try again!" << endl;
 		}
 	}
