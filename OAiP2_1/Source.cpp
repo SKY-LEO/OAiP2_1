@@ -8,7 +8,7 @@ using namespace std;
 int checkInputNumberInt();
 double checkInputNumberDouble();
 double simple(double a);
-double magicRecursion(double& a, double& x);
+double magicRecursion(double a, double x);
 
 int main()
 {
@@ -29,7 +29,7 @@ int main()
 	} while (code == 'y' || code == 'Y');
 }
 
-double magicRecursion(double& a, double& x)
+double magicRecursion(double a, double x)
 {
 	double x_prev = x;
 	x = 0.5 * (x + a / x);
